@@ -1,0 +1,73 @@
+
+body{
+	
+	font-family: verdana;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul{
+	
+    display:flex;
+    flex-flow: row wrap;
+    list-style: none;
+    justify-content: space-between;
+
+}
+
+nav ul li{
+    
+  width: 170px;
+}
+
+nav ul li a{
+    color: black;
+	text-decoration: none;
+}
+
+nav ul li a:hover{    
+	color: pink;
+}
+
+.logo{
+    width: 100%;
+    text-align: center;
+}
+
+#photos{
+    display: flex;	
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#photos div{
+    justify-content: center;
+    margin:1em;
+	flex-grow: 1;
+	background-size: cover;
+}
+
+@media(min-width: 800px ) {
+ 	ul{
+        align-items: center;
+    }
+    
+    .typography{
+        order: 1
+    }
+    .ui{
+        order: 2
+    }
+    .logo{
+        width: 170px;
+        order: 3
+    }
+    .branding{
+        order: 4
+    }
+    
+    .graffiti{
+        order: 5;
+    }
+}
