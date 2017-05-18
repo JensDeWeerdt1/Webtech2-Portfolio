@@ -52,7 +52,7 @@ class Weather
         
     }
     
-    updateUI(){
+updateUI(){
         this.getFromCache();
         console.log("updating UI");
         var color;
@@ -64,7 +64,40 @@ class Weather
         }
         $("#app").css("background-color", color);
         $("#app").append(`<h1>${Math.round(this.temperatuur)}&deg;</h1>`);
-        
+
+        switch (true) {
+            case (this.temperatuur < 10):
+                this.beer = "Duvel";
+                this.beerImg = "http://www.trollekelder.be/cafe/wp-content/uploads/2013/06/duvel.jpg";
+                break;
+            case (this.temperatuur > 10 && this.temperatuur < 12):
+                this.beer = "Maes";
+                this.beerImg = "http://www.bierpassie.com/beericon/575/medium/1375194292.jpg";
+                break;
+            case (this.temperatuur > 12 && this.temperatuur < 16):
+                this.beer = "Heineken";
+                this.beerImg = "http://www.thebeerstore.ca/sites/default/files/styles/brand_hero/public/brand/hero/heineken.jpg?itok=bORtwyPr";
+                break;
+            case (this.temperatuur > 16 && this.temperatuur < 20):
+                this.beer = "Leffe Blond";
+                this.beerImg = "https://pilsje.files.wordpress.com/2012/06/leffe_blonde.jpg";
+                break;
+            case (this.temperatuur > 20 && this.temperatuur < 24):
+                this.beer = "Jupiler";
+                this.beerImg = "http://www.madeinvlaamsbrabant.be/wp-content/uploads/2016/10/jupiler0.jpg";
+                break;
+            case (this.temperatuur > 24 && this.temperatuur < 28):
+                this.beer = "Grimbergen Blond Zomer";
+                this.beerImg = "http://www.grimbergenbier.be/img/localized/nl-be/grim_blond.png";
+                break;
+            case (this.temperatuur > 28 && this.temperatuur < 35):
+                this.beer = "Kriek";
+                this.beerImg = "https://www.horecasupport.be/admin_assets/content/content_files/public/downloads/bv_downloads/packshots/kriek_met_fles.jpg";
+        }
+
+        $("#beer").append(`<h2>Perfect weer voor een frisse <span>${(this.beer)}</span>!</h2>`);
+        $("#beer").append(`<img src="${(this.beerImg)}"></img>`);
+
 }
     
     storeInCache(){

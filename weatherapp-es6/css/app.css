@@ -15,3 +15,8 @@ body{
     font-size: 25vh;
     color: white;
 }
+
+#beer{
+    font-family: Helvetica;
+    color:gray;
+}
